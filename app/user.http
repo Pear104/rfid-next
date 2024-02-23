@@ -1,0 +1,6 @@
+### Read user
+GET http://localhost:3000/api/user
+
+### Create user
+POST http://localhost:3000/api/user
+Content-Type: application/json
