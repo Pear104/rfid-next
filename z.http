@@ -5,5 +5,14 @@ GET http://localhost:3000/api/user
 POST http://localhost:3000/api/user
 Content-Type: application/json
 
+### Login
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username": "abcd",
+    "password": "12345"
+}
+
 ### Test
 GET https://rfid-next-kappa.vercel.app/api/user

@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import {
   admin,
   lecturer,
@@ -25,21 +25,19 @@ function stringToAttendStatus(value: string): AttendStatus {
 }
 
 async function seed() {
-  await prisma.admin.create({ data: admin });
+  await db.admin.create({ data: admin });
+  await Promise.all(lecturer.map((lec) => db.lecturer.create({ data: lec })));
+  await Promise.all(classes.map((cl) => db.class.create({ data: cl })));
+  await Promise.all(subject.map((sub) => db.subject.create({ data: sub })));
+  await Promise.all(student.map((stu) => db.student.create({ data: stu })));
   await Promise.all(
-    lecturer.map((lec) => prisma.lecturer.create({ data: lec }))
-  );
-  await Promise.all(classes.map((cl) => prisma.class.create({ data: cl })));
-  await Promise.all(subject.map((sub) => prisma.subject.create({ data: sub })));
-  await Promise.all(student.map((stu) => prisma.student.create({ data: stu })));
-  await Promise.all(
-    classInfo.map((info) => prisma.classInfo.create({ data: info }))
+    classInfo.map((info) => db.classInfo.create({ data: info }))
   );
   await Promise.all(
     attendance.map((att) => {
       const [day, month, year] = att.date.split("/").map(Number);
       try {
-        return prisma.attendance.create({
+        return db.attendance.create({
           data: {
             classInfoId: att.classInfoId,
             section: att.section,
@@ -49,7 +47,7 @@ async function seed() {
           },
         });
       } catch (error) {
-        console.log(error);
+        return "Seed data not OK " + error;
       }
     })
   );
