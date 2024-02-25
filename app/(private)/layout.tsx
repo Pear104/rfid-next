@@ -1,0 +1,13 @@
+import TopNav from "@/components/shared/TopNav";
+import React from "react";
+
+const layout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div>
+      <TopNav />
+      <div>{children}</div>
+    </div>
+  );
+};
+
+export default layout;

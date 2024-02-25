@@ -1,16 +1,17 @@
 generator client {
   provider = "prisma-client-js"
 }
- 
+
 datasource db {
   provider = "postgresql"
   // Uses connection pooling
-  url = env("POSTGRES_PRISMA_URL")
+  // url       = env("POSTGRES_PRISMA_URL")
+  url      = env("TEST_DB")
   // Uses direct connection, ⚠️ make sure to keep this to `POSTGRES_URL_NON_POOLING`
   // or you'll have dangling databases from migrations
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  // directUrl = env("POSTGRES_URL_NON_POOLING")
 }
- 
+
 model User {
   id        Int      @id @default(autoincrement())
   newField  String
@@ -20,28 +21,63 @@ model User {
   createdAt DateTime @default(now())
 }
 
-model Student {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  image     String
-  createdAt DateTime @default(now())
+model Admin {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
 }
 
 model Lecturer {
-  id        Int      @id @default(autoincrement())
+  id        String      @id
   name      String
-  email     String   @unique
-  image     String
-  createdAt DateTime @default(now())
+  ClassInfo ClassInfo[]
 }
 
 model Class {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  image     String
-  createdAt DateTime @default(now())
+  id        String      @id
+  ClassInfo ClassInfo[]
 }
 
+model Subject {
+  id        String      @id
+  name      String
+  ClassInfo ClassInfo[]
+}
 
+model Student {
+  id         String       @id
+  uid        String
+  name       String
+  Attendance Attendance[]
+}
+
+model ClassInfo {
+  id         Int          @id @default(autoincrement())
+  lecturerId String
+  classId    String
+  subjectId  String
+  slotOrder  Int
+  lecturer   Lecturer     @relation(fields: [lecturerId], references: [id])
+  class      Class        @relation(fields: [classId], references: [id])
+  subject    Subject      @relation(fields: [subjectId], references: [id])
+  Attendance Attendance[]
+}
+
+model Attendance {
+  classInfoId Int
+  studentId   String
+  section     Int
+  attendance  AttendStatus @default(FUTURE)
+  date        DateTime
+  classInfo   ClassInfo    @relation(fields: [classInfoId], references: [id])
+  student     Student      @relation(fields: [studentId], references: [id])
+
+  @@unique([classInfoId, studentId, section])
+  @@index([classInfoId, studentId, section])
+}
+
+enum AttendStatus {
+  FUTURE
+  PRESENT
+  ABSENT
+}
