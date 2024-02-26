@@ -6,7 +6,7 @@ export async function get(url: string) {
 
 export async function post(url: string, data: any) {
   return await (
-    await fetch(process.env.VERCEL_URL + url, {
+    await fetch(url, {
       method: "POST",
       cache: "no-store",
       body: JSON.stringify(data),
