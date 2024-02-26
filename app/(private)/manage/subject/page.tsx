@@ -5,7 +5,7 @@ const SubjectPage = async () => {
   const tableData = await get(`/api/subject`);
   const rows = tableData.map((sub: any) => {
     return (
-      <tr>
+      <tr key={sub.id}>
         <td className="border-2 border-black px-2 py-1">{sub.id}</td>
         <td className="border-2 border-black px-2 py-1">{sub.name}</td>
       </tr>

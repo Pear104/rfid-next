@@ -5,7 +5,7 @@ const SubjectPage = async () => {
   const tableData = await get(`/api/lecturer`);
   const rows = tableData.map((lec: any) => {
     return (
-      <tr>
+      <tr key={lec.id}>
         <td className="border-2 border-black px-2 py-1">{lec.id}</td>
         <td className="border-2 border-black px-2 py-1">{lec.name}</td>
       </tr>
