@@ -18,7 +18,7 @@ import { Button } from "../ui/button";
 export default function TopNav() {
   const handleClick = () => {
     localStorage.removeItem("loged");
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = process.env.VERCEL_URL + "/login";
   };
   return (
     <div className="bg-red-400 py-2 px-4 flex justify-between">

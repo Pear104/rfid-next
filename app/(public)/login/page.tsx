@@ -10,7 +10,7 @@ const Login = () => {
     const ok = (await post("/api/login", formData)).ok;
     if (ok) {
       localStorage.setItem("loged", ok);
-      window.location.href = "http://localhost:3000" + "/attendance";
+      window.location.href = process.env.VERCEL_URL + "/attendance";
     }
   };
   return (

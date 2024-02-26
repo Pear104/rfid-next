@@ -16,3 +16,7 @@ Content-Type: application/json
 
 ### Test
 GET https://rfid-next-kappa.vercel.app/api/user
+
+### Seed
+POST https://rfid-next-kappa.vercel.app/api/seed
+Content-Type: application/json
