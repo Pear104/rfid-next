@@ -5,7 +5,7 @@ export default async function ClassPage() {
   const tableData = await get(`/api/class`);
   const rows = tableData.map((cl: any) => {
     return (
-      <tr>
+      <tr key={cl.id}>
         <td className="border-2 border-black px-2 py-1">{cl.id}</td>
       </tr>
     );
