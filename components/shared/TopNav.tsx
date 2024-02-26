@@ -13,20 +13,15 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-const NavItemChild = () => {
-  return (
-    <Link href="/attendance" legacyBehavior passHref>
-      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-        Attendance
-      </NavigationMenuLink>
-    </Link>
-  );
-};
+import { Button } from "../ui/button";
 
 export default function TopNav() {
+  const handleClick = () => {
+    localStorage.removeItem("loged");
+    window.location.href = "http://localhost:3000/login";
+  };
   return (
-    <div className="bg-red-400 py-2 px-4">
+    <div className="bg-red-400 py-2 px-4 flex justify-between">
       <NavigationMenu>
         <NavigationMenuList className="flex gap-4">
           <NavigationMenuItem>
@@ -38,7 +33,7 @@ export default function TopNav() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <Link href="/manage">Manage</Link>
+              <Link href="/manage/classGroup">Manage</Link>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-4">
@@ -46,10 +41,6 @@ export default function TopNav() {
                 <ListItem href="/manage/subject" title="Subject"></ListItem>
                 <ListItem href="/manage/lecturer" title="Lecturer"></ListItem>
                 <ListItem href="/manage/student" title="Student"></ListItem>
-                <ListItem
-                  href="/manage/classInfo"
-                  title="Class Info"
-                ></ListItem>
                 <ListItem
                   href="/manage/classGroup"
                   title="Class Group"
@@ -66,6 +57,7 @@ export default function TopNav() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+      <Button onClick={handleClick}>Logout</Button>
     </div>
   );
 }

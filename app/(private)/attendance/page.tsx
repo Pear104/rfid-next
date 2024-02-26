@@ -1,7 +1,7 @@
 import React from "react";
 
 import SelectField from "@/components/shared/SelectField";
-import useFetch from "@/lib/useFetch";
+import { get } from "@/lib/request";
 import AttendanceTable from "@/components/shared/AttendanceTable";
 
 const Attendance = async ({
@@ -9,11 +9,11 @@ const Attendance = async ({
 }: {
   searchParams?: { subject?: string; class?: string };
 }) => {
-  const subject = await useFetch("/api/subject");
-  const classes = await useFetch("/api/class");
+  const subject = await get("/api/subject");
+  const classes = await get("/api/class");
   let tableData: any = null;
   if (searchParams?.subject && searchParams?.class) {
-    tableData = await useFetch(
+    tableData = await get(
       `/api/classInfo?subject=${searchParams?.subject}&class=${searchParams?.class}`
     );
   }
