@@ -1,6 +1,6 @@
 export async function get(url: string) {
   return await (
-    await fetch("http:localhost:3000" + url, { cache: "no-store" })
+    await fetch(process.env.VERCEL_URL + url, { cache: "no-store" })
   ).json();
 }
 
