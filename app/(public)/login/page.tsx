@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { post } from "@/lib/request";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const router = useRouter();
   const handleSubmit = async () => {
     const ok = (await post("/api/login", formData)).ok;
+    console.log(ok);
     if (ok) {
       localStorage.setItem("loged", ok);
-      window.location.href = process.env.VERCEL_URL + "/attendance";
+      router.push(process.env.NEXT_PUBLIC_VERCEL_URL + "/attendance");
     }
   };
   return (

@@ -14,11 +14,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export default function TopNav() {
+  const router = useRouter();
   const handleClick = () => {
     localStorage.removeItem("loged");
-    window.location.href = process.env.VERCEL_URL + "/login";
+    router.push(process.env.NEXT_PUBLIC_VERCEL_URL + "/login");
   };
   return (
     <div className="bg-red-400 py-2 px-4 flex justify-between">
