@@ -1,8 +1,8 @@
-import { get } from "@/lib/request";
+import { Get } from "@/lib/request";
 import React from "react";
 
 export default async function ClassInfoPage() {
-  const tableData = await get(`/api/classInfo`);
+  const tableData = await Get(`/api/classInfo`);
   const rows = tableData.map((sub: any) => {
     return (
       <tr key={sub.id}>

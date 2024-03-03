@@ -20,3 +20,8 @@ GET https://rfid-next-kappa.vercel.app/api/user
 ### Seed
 POST https://rfid-next-kappa.vercel.app/api/seed
 Content-Type: application/json
+
+### Seed local
+POST http://localhost:3000/api/seed
+Content-Type: application/json
+

@@ -1,4 +1,4 @@
-import { get } from "@/lib/request";
+import { Get } from "@/lib/request";
 import React from "react";
 
 export default async function ClassMemberTable({
@@ -6,7 +6,7 @@ export default async function ClassMemberTable({
 }: {
   classInfoId: string;
 }) {
-  const data = await get("/api/attendance?id=" + classInfoId);
+  const data = await Get("/api/attendance?id=" + classInfoId);
   const rows = data.map((item: any) => {
     return (
       <tr key={item.id}>

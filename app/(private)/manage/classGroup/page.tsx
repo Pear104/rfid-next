@@ -1,8 +1,8 @@
-import { get } from "@/lib/request";
+import { Get } from "@/lib/request";
 import React from "react";
 
 export default async function ClassPage() {
-  const tableData = await get(`/api/classGroup`);
+  const tableData = await Get(`/api/classGroup`);
   const rows = tableData.map((cl: any) => {
     return (
       <tr key={cl.id}>

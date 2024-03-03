@@ -1,8 +1,8 @@
-import { get } from "@/lib/request";
+import { Get } from "@/lib/request";
 import React from "react";
 
 const SubjectPage = async () => {
-  const tableData = await get(`/api/lecturer`);
+  const tableData = await Get(`/api/lecturer`);
   const rows = tableData.map((lec: any) => {
     return (
       <tr key={lec.id}>

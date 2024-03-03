@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { post } from "@/lib/request";
+import { Post } from "@/lib/request";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const handleSubmit = async () => {
-    const ok = (await post("/api/login", formData)).ok;
+    const ok = (await Post("/api/login", formData)).ok;
     if (ok) {
       localStorage.setItem("loged", ok);
       window.location.href = "http://localhost:3000" + "/attendance";

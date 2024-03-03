@@ -1,0 +1,132 @@
+###> Create Classes
+POST http://localhost:3000/api/class
+Content-Type: application/json
+
+{
+    "id": "SE1804"
+}
+
+###> Delete Classes
+DELETE http://localhost:3000/api/class
+Content-Type: application/json
+
+{
+    "id": "SE1804"
+}
+
+###> Update Classes
+PATCH http://localhost:3000/api/class
+Content-Type: application/json
+
+{
+    "id": "SE1700",
+    "newId": "SE1977"
+}
+
+###> Create Subject
+POST http://localhost:3000/api/subject
+Content-Type: application/json
+
+{
+    "id": "IOT103",
+    "name": "newIOT"
+}
+
+###> Delete Subject
+DELETE http://localhost:3000/api/subject
+Content-Type: application/json
+
+{
+    "id": "IOT103"
+}
+
+###> Update Subject
+PATCH http://localhost:3000/api/subject
+Content-Type: application/json
+
+{
+    "id": "IOT103",
+    "newName": "QWEQWOEJ"
+}
+
+###> Create Lecturer
+POST http://localhost:3000/api/lecturer
+Content-Type: application/json
+
+{
+    "id": "asdqwe",
+    "name": "QWEQWOEJ"
+}
+
+###> Delete Lecturer
+DELETE http://localhost:3000/api/lecturer
+Content-Type: application/json
+
+{
+    "id": "asdqwe"
+}
+
+###> Update Lecturer
+PATCH http://localhost:3000/api/lecturer
+Content-Type: application/json
+
+{
+    "id": "asdqwe",
+    "newName": "QWEQWOEqweqweJ"
+}
+
+###> Create Student
+POST http://localhost:3000/api/student
+Content-Type: application/json
+
+{
+    "id": "asdqwe",
+    "name": "QWEQWOEJ",
+    "uid":  "1234"
+}
+
+###> Delete Student
+DELETE http://localhost:3000/api/student
+Content-Type: application/json
+
+{
+    "id": "asdqwe"
+}
+
+###> Update Student
+PATCH http://localhost:3000/api/student
+Content-Type: application/json
+
+{
+    "id": "asdqwe",
+    "newName": "Thua",
+    "newUid": "Thua"
+}
+
+###> Create ClassGroup
+POST http://localhost:3000/api/classGroup
+Content-Type: application/json
+
+{
+    "classId":  "SE1801",
+    "subjectId": "LAB211",
+    "lecturerId": "dunglt",
+    "slotOrder": "1"
+}
+
+###> Delete ClassGroup
+DELETE http://localhost:3000/api/classGroup
+Content-Type: application/json
+
+{
+    "id": "9"
+}
+
+###> Update ClassGroup
+PATCH http://localhost:3000/api/classGroup
+Content-Type: application/json
+
+{
+    "id": "8",
+    "lecturerId": "ducdnm"
+}

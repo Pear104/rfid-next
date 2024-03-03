@@ -159,56 +159,48 @@ const student = [
 
 const classInfo = [
   {
-    id: 1,
     lecturerId: "dunglt",
     classId: "SE1801",
     subjectId: "IOT102",
     slotOrder: 1,
   },
   {
-    id: 2,
     lecturerId: "nhandt",
     classId: "SE1801",
     subjectId: "SWE201c",
     slotOrder: 2,
   },
   {
-    id: 3,
     lecturerId: "hungld",
     classId: "SE1801",
     subjectId: "LAB211",
     slotOrder: 1,
   },
   {
-    id: 4,
     lecturerId: "ducdnm",
     classId: "SE1802",
     subjectId: "IOT102",
     slotOrder: 1,
   },
   {
-    id: 5,
     lecturerId: "dunglt",
     classId: "SE1802",
     subjectId: "CSI105",
     slotOrder: 2,
   },
   {
-    id: 6,
     lecturerId: "hungld",
     classId: "SE1803",
     subjectId: "SWE201c",
     slotOrder: 1,
   },
   {
-    id: 7,
     lecturerId: "nhandt",
     classId: "SE1803",
     subjectId: "CSI105",
     slotOrder: 3,
   },
   {
-    id: 8,
     lecturerId: "ducdnm",
     classId: "SE1803",
     subjectId: "LAB211",
