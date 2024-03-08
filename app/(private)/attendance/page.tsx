@@ -1,6 +1,6 @@
 import React from "react";
 
-import SelectField from "@/components/shared/SelectField";
+import SelectFieldNav from "@/components/shared/SelectFieldNav";
 import { Get } from "@/lib/request";
 import AttendanceTable from "@/components/shared/AttendanceTable";
 
@@ -21,8 +21,18 @@ const Attendance = async ({
     <>
       <div className="font-bold text-2xl">Attendance</div>
       <div className="flex gap-4 mt-2">
-        <SelectField label="Subject" items={subject} field="id" />
-        <SelectField label="Class" items={classes} field="id" />
+        <SelectFieldNav
+          label="Subject"
+          items={subject}
+          valueField="id"
+          textField="id"
+        />
+        <SelectFieldNav
+          label="Class"
+          items={classes}
+          valueField="id"
+          textField="id"
+        />
       </div>
       <div>
         <AttendanceTable

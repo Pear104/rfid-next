@@ -45,8 +45,9 @@ PATCH http://localhost:3000/api/subject
 Content-Type: application/json
 
 {
-    "id": "IOT103",
-    "newName": "QWEQWOEJ"
+    "id": "asdsd",
+    "newId": "IOT103",
+    "name": "QWEQWOEJ"
 }
 
 ###> Create Lecturer
@@ -129,4 +130,14 @@ Content-Type: application/json
 {
     "id": "8",
     "lecturerId": "ducdnm"
+}
+
+###> Check attendance
+POST http://localhost:3000/api/attendance
+Content-Type: application/json
+
+{
+    "uid": "SE007",
+    "subjectId": "LAB211",
+    "section": "1"
 }

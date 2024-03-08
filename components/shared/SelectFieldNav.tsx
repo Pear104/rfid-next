@@ -8,20 +8,21 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-export default function SelectField({
+export default function SelectFieldNav({
   label,
   items,
-  field,
+  valueField,
+  textField,
 }: {
   label: string;
   items: any[];
-  field: string;
+  valueField: string;
+  textField: string;
 }) {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
   const params = new URLSearchParams(searchParams);
-
   return (
     <Select
       onValueChange={(e) => {
@@ -34,11 +35,17 @@ export default function SelectField({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {items.map((i) => (
-            <SelectItem key={i[field]} value={i[field]}>
-              {i[field]}
-            </SelectItem>
-          ))}
+          {items.map((i) => {
+            return valueField ? (
+              <SelectItem key={i[valueField]} value={i[valueField]}>
+                {i[textField]}
+              </SelectItem>
+            ) : (
+              <SelectItem key={i} value={i}>
+                {i}
+              </SelectItem>
+            );
+          })}
         </SelectGroup>
       </SelectContent>
     </Select>

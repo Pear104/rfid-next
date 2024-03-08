@@ -15,8 +15,29 @@ const AttendanceTable = ({ data, errMsg }: { data: any[]; errMsg: string }) => {
           (info) =>
             info.studentId == currentStudent.id && info.section == section
         );
+        let color: string = "yellow";
+        switch (studentData?.attendance.toString()) {
+          case "FUTURE": {
+            color = "yellow";
+            break;
+          }
+          case "PRESENT": {
+            color = "green";
+            break;
+          }
+          case "ABSENT": {
+            color = "red";
+            break;
+          }
+          default: {
+            break;
+          }
+        }
         return (
-          <td className="border-2 border-black px-2 py-1" key={section}>
+          <td
+            className={`border-2 border-black font-bold px-2 py-1 text-${color}-500`}
+            key={section}
+          >
             {studentData?.attendance.toString().toLowerCase()}
           </td>
         );

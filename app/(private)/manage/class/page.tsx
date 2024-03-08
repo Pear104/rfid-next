@@ -1,31 +1,28 @@
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-
 import { Button } from "@/components/ui/button";
-import { Get, Post } from "@/lib/request";
+import { Get } from "@/lib/request";
 import React, { ReactNode } from "react";
-import { EditDialog } from "./EditDialog";
-import { CreateClassDialog } from "./CreateDialog";
 import DeleteDialog from "@/components/shared/DeleteDialog";
+import { EditDialog } from "@/components/shared/EditDialog";
+import { CreateClassDialog } from "@/components/shared/CreateDialog";
 
 export default async function ClassPage() {
   const tableData = await Get(`/api/class`);
+  const fieldData = [{ field: "id", text: "Class ID", type: "text" }];
   const rows = tableData.map((cl: any) => {
+    const data: any = fieldData.map((item: any) => {
+      return {
+        field: item.field,
+        text: item.text,
+        type: item.type,
+        value: cl[item.field],
+      };
+    });
     return (
       <tr key={cl.id}>
         <td className="border-2 border-black px-2 py-1">{cl.id}</td>
         <td className="border-2 border-black px-2 py-1">
           <div className="flex gap-2">
-            <EditDialog data={cl.id}></EditDialog>
+            <EditDialog data={data} object="class" id={cl.id}></EditDialog>
             <DeleteDialog id={cl.id} object="class"></DeleteDialog>
           </div>
         </td>
@@ -46,7 +43,9 @@ export default async function ClassPage() {
         </thead>
         <tbody>{rows.map((row: any) => row)}</tbody>
       </table>
-      {/* <CreateClassDialog data={}>Create class</CreateClassDialog> */}
+      <CreateClassDialog data={fieldData} object="class">
+        Create class
+      </CreateClassDialog>
     </div>
   );
 }

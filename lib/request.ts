@@ -21,6 +21,9 @@ export async function Patch(url: string, data: any) {
   return await (
     await fetch(url, {
       method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
       cache: "no-store",
       body: JSON.stringify(data),
     })

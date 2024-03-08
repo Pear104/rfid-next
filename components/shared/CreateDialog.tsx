@@ -14,9 +14,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import React, { ReactNode } from "react";
 import { Post } from "@/lib/request";
-import { revalidatePath, revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
+import SelectFieldForm from "./SelectFieldForm";
 
 export function CreateClassDialog({
   children,
@@ -34,10 +33,11 @@ export function CreateClassDialog({
     data
       .map((item) => item.field)
       .forEach((field: string) => (rawFormData[field] = formData.get(field)));
-    await Post(
-      process.env.NEXT_PUBLIC_VERCEL_URL + `/api/${object}`,
-      rawFormData
-    );
+    console.log(rawFormData);
+    // await Post(
+    //   process.env.NEXT_PUBLIC_VERCEL_URL + `/api/${object}`,
+    //   rawFormData
+    // );
   };
   return (
     <Dialog>
@@ -62,7 +62,17 @@ export function CreateClassDialog({
                   key={item.field}
                 >
                   <Label className="text-left">{item.text}</Label>
-                  <Input name={item.field} className="col-span-3" />
+                  {item.type == "select" ? (
+                    <SelectFieldForm
+                      key={item.value.valueField}
+                      label={item.text}
+                      items={item.value.items}
+                      valueField={item.value.valueField}
+                      textField={item.value.textField}
+                    />
+                  ) : (
+                    <Input name={item.field} className="col-span-3" />
+                  )}
                 </div>
               );
             })}

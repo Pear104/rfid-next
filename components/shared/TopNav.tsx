@@ -23,7 +23,7 @@ export default function TopNav() {
     router.push(process.env.NEXT_PUBLIC_VERCEL_URL + "/login");
   };
   return (
-    <div className="bg-red-400 py-2 px-4 flex justify-between">
+    <div className="py-2 px-4 flex justify-between border-b">
       <NavigationMenu>
         <NavigationMenuList className="flex gap-4">
           <NavigationMenuItem>

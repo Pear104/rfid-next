@@ -18,3 +18,40 @@ export async function GET(req: NextRequest) {
     })
   );
 }
+
+export async function POST(req: NextRequest) {
+  const { uid, section, subjectId } = await req.json();
+  const data = await db.attendance.findFirst({
+    where: {
+      student: {
+        uid: {
+          equals: uid,
+        },
+      },
+      classInfo: {
+        subjectId: {
+          equals: subjectId,
+        },
+      },
+      section: {
+        equals: +section,
+      },
+    },
+  });
+  if (!data) {
+    return await NextResponse.json({ ok: false });
+  }
+  await db.attendance.update({
+    where: {
+      classInfoId_studentId_section: {
+        classInfoId: data.classInfoId,
+        studentId: data.studentId,
+        section: data.section,
+      },
+    },
+    data: {
+      attendance: "PRESENT",
+    },
+  });
+  return await NextResponse.json({ ok: true });
+}

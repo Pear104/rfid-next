@@ -39,13 +39,14 @@ export async function DELETE(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  const { id, newName } = await req.json();
+  const { id, newId, name } = await req.json();
   const data = await db.subject.update({
     where: {
       id: id,
     },
     data: {
-      name: newName,
+      id: newId,
+      name: name,
     },
   });
   if (data == null) {

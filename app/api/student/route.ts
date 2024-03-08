@@ -2,7 +2,9 @@ import { db } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-  return NextResponse.json(await db.student.findMany());
+  return NextResponse.json(
+    await db.student.findMany({ orderBy: { id: "asc" } })
+  );
 }
 
 export async function POST(req: NextRequest) {
@@ -40,14 +42,15 @@ export async function DELETE(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  const { id, newName, newUid } = await req.json();
+  const { id, newId, name, uid } = await req.json();
   const data = await db.student.update({
     where: {
       id: id,
     },
     data: {
-      name: newName,
-      uid: newUid,
+      id: newId,
+      name,
+      uid,
     },
   });
   if (data == null) {
