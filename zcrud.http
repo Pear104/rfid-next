@@ -23,6 +23,8 @@ Content-Type: application/json
     "newId": "SE1977"
 }
 
+###> ================================== Subject =================================================================
+
 ###> Create Subject
 POST http://localhost:3000/api/subject
 Content-Type: application/json
@@ -50,6 +52,8 @@ Content-Type: application/json
     "name": "QWEQWOEJ"
 }
 
+###> ================================== Lecturer =================================================================
+
 ###> Create Lecturer
 POST http://localhost:3000/api/lecturer
 Content-Type: application/json
@@ -75,6 +79,8 @@ Content-Type: application/json
     "id": "asdqwe",
     "newName": "QWEQWOEqweqweJ"
 }
+
+###> ================================== Student =================================================================
 
 ###> Create Student
 POST http://localhost:3000/api/student
@@ -104,6 +110,8 @@ Content-Type: application/json
     "newUid": "Thua"
 }
 
+###> ================================== ClassGroup =================================================================
+
 ###> Create ClassGroup
 POST http://localhost:3000/api/classGroup
 Content-Type: application/json
@@ -132,6 +140,8 @@ Content-Type: application/json
     "lecturerId": "ducdnm"
 }
 
+###> ================================== Attendance =================================================================
+
 ###> Check attendance
 POST http://localhost:3000/api/attendance
 Content-Type: application/json
@@ -140,4 +150,28 @@ Content-Type: application/json
     "uid": "SE007",
     "subjectId": "LAB211",
     "section": "1"
+}
+
+###> Check attendance
+POST http://localhost:3000/api/attendance
+Content-Type: application/json
+
+{
+    "uid": "SE007",
+    "subjectId": "LAB211",
+    "section": "1"
+}
+
+###> ================================== BikeParking =================================================================
+
+###> Get all
+GET http://localhost:3000/api/bikeParking
+Content-Type: application/json
+
+###> Check bike
+POST http://localhost:3000/api/bikeParking
+Content-Type: application/json
+
+{
+    "uid": "SE002"
 }

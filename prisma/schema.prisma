@@ -43,10 +43,11 @@ model Subject {
 }
 
 model Student {
-  id         String       @id
-  uid        String
-  name       String
-  Attendance Attendance[]
+  id          String        @id
+  uid         String
+  name        String
+  Attendance  Attendance[]
+  BikeParking BikeParking[]
 }
 
 model ClassInfo {
@@ -72,6 +73,13 @@ model Attendance {
 
   @@unique([classInfoId, studentId, section])
   @@index([classInfoId, studentId, section])
+}
+
+model BikeParking {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  time      DateTime
+  student   Student  @relation(fields: [studentId], references: [id])
 }
 
 enum AttendStatus {
