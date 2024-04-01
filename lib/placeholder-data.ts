@@ -1,5 +1,4 @@
 const admin = {
-  id: 1,
   username: "abcde",
   password: "12345",
 };
@@ -57,102 +56,102 @@ const subject = [
 const student = [
   {
     id: "SE001",
-    uid: "123abc",
+    uid: "SE001",
     name: "Lê Thế Trường",
   },
   {
     id: "SE002",
-    uid: "123abc",
+    uid: "SE002",
     name: "Nguyễn Trung Hưng",
   },
   {
     id: "SE003",
-    uid: "123abc",
+    uid: "SE003",
     name: "Võ Đỗ Quang Dương",
   },
   {
     id: "SE004",
-    uid: "123abc",
+    uid: "SE004",
     name: "Tạ Gia Nhật Minh",
   },
   {
     id: "SE005",
-    uid: "123abc",
+    uid: "SE005",
     name: "Đỗ Long Ánh",
   },
   {
     id: "SE006",
-    uid: "123abc",
+    uid: "SE006",
     name: "Trần Lê Huy",
   },
   {
     id: "SE007",
-    uid: "123abc",
+    uid: "SE007",
     name: "Đỗ Hồng Quân",
   },
   {
     id: "SE008",
-    uid: "123abc",
+    uid: "SE008",
     name: "Huỳnh Võ Tấn Phước",
   },
   {
     id: "SE009",
-    uid: "123abc",
+    uid: "SE009",
     name: "Nguyễn Thanh Hải",
   },
   {
     id: "SE010",
-    uid: "123abc",
+    uid: "SE010",
     name: "Hoàng Lê Công Thành",
   },
   {
     id: "SE011",
-    uid: "123abc",
+    uid: "SE011",
     name: "Vũ Thành Nam",
   },
   {
     id: "SE012",
-    uid: "123abc",
+    uid: "SE012",
     name: "Bùi Tuấn Thành",
   },
   {
     id: "SE013",
-    uid: "123abc",
+    uid: "SE013",
     name: "Hoàng Ngọc Thức",
   },
   {
     id: "SE014",
-    uid: "123abc",
+    uid: "SE014",
     name: "Trần Đăng Quốc Đạt",
   },
   {
     id: "SE015",
-    uid: "123abc",
+    uid: "SE015",
     name: "Tạ Hoàng Tân",
   },
   {
     id: "SE016",
-    uid: "123abc",
+    uid: "SE016",
     name: "Võ Hoàng Long",
   },
   {
     id: "SE017",
-    uid: "123abc",
+    uid: "SE017",
     name: "Lê Trần Minh Đạt",
   },
   {
     id: "SE018",
-    uid: "123abc",
+    uid: "SE018",
     name: "Trịnh Đăng Khôi",
   },
   {
     id: "SE019",
-    uid: "123abc",
+    uid: "SE019",
     name: "Võ Trọng Nhân",
   },
   {
     id: "SE020",
-    uid: "123abc",
+    uid: "SE020",
     name: "Lâm Quang Hưng",
   },
 ];

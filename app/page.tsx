@@ -10,7 +10,7 @@ const Login = () => {
     const ok = (await Post("/api/login", formData)).ok;
     if (ok) {
       localStorage.setItem("loged", ok);
-      window.location.href = "http://localhost:3000" + "/attendance";
+      window.location.href = process.env.NEXT_PUBLIC_VERCEL_URL + "/attendance";
     }
   };
   return (
@@ -26,6 +26,7 @@ const Login = () => {
               }
             />
             <Input
+              type="password"
               placeholder="Password"
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })

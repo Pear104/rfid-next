@@ -147,9 +147,7 @@ POST http://localhost:3000/api/attendance
 Content-Type: application/json
 
 {
-    "uid": "SE007",
-    "subjectId": "LAB211",
-    "section": "1"
+    "uid": "SE003"
 }
 
 ###> Check attendance
@@ -173,5 +171,5 @@ POST http://localhost:3000/api/bikeParking
 Content-Type: application/json
 
 {
-    "uid": "SE002"
+    "uid": "SE010"
 }

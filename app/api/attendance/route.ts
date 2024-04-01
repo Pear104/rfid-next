@@ -20,7 +20,13 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const { uid, section, subjectId } = await req.json();
+  const { uid } = await req.json();
+  let { slot, date } = timeToSlot();
+  console.log(slot, date);
+  // date = "2024-02-22T";
+  // slot = 3;
+  let startDate = date + "00:00:00.000Z";
+  let endDate = date + "18:00:00.000Z";
   const data = await db.attendance.findFirst({
     where: {
       student: {
@@ -28,14 +34,18 @@ export async function POST(req: NextRequest) {
           equals: uid,
         },
       },
+      date: {
+        gte: new Date(startDate),
+        lte: new Date(endDate),
+      },
       classInfo: {
-        subjectId: {
-          equals: subjectId,
+        slotOrder: {
+          equals: slot,
         },
       },
-      section: {
-        equals: +section,
-      },
+    },
+    include: {
+      classInfo: true,
     },
   });
   if (!data) {
@@ -53,5 +63,28 @@ export async function POST(req: NextRequest) {
       attendance: "PRESENT",
     },
   });
-  return await NextResponse.json({ ok: true });
+  return await NextResponse.json({ data });
 }
+
+const timeToSlot: any = () => {
+  let slot = 0;
+  let currentTime = new Date();
+  let totalMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+  console.log(totalMinutes);
+  const timeRanges = [
+    { startMinutes: 7 * 60, endMinutes: 9 * 60 + 15 },
+    { startMinutes: 9 * 60 + 30, endMinutes: 11 * 60 + 45 },
+    { startMinutes: 12 * 60 + 30, endMinutes: 14 * 60 + 45 },
+    { startMinutes: 15 * 60, endMinutes: 17 * 60 + 15 },
+  ];
+
+  for (let i = 0; i < timeRanges.length; i++) {
+    const { startMinutes, endMinutes } = timeRanges[i];
+    if (totalMinutes >= startMinutes && totalMinutes <= endMinutes) {
+      slot = i + 1;
+      break;
+    }
+  }
+
+  return { slot, date: currentTime.toISOString().slice(0, 11) };
+};
