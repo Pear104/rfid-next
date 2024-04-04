@@ -3,22 +3,28 @@ const admin = {
   password: "12345",
 };
 
+const updateRFID = {
+  id: 1,
+  uid: "",
+  isUpdated: true,
+};
+
 const lecturer = [
   {
     id: "dunglt",
     name: "Lê Thế Dũng",
   },
   {
-    id: "ducdnm",
-    name: "Đặng Ngọc Minh Đức",
+    id: "taitv",
+    name: "Trần Văn Tài",
   },
   {
-    id: "hungld",
-    name: "Lại Đức Hùng",
+    id: "hungnd",
+    name: "Nguyễn Đức Hùng",
   },
   {
-    id: "nhandt",
-    name: "Đỗ Tấn Nhàn",
+    id: "toidt",
+    name: "Đỗ Tấn Tới",
   },
 ];
 
@@ -164,19 +170,19 @@ const classInfo = [
     slotOrder: 1,
   },
   {
-    lecturerId: "nhandt",
+    lecturerId: "toidt",
     classId: "SE1801",
     subjectId: "SWE201c",
     slotOrder: 2,
   },
   {
-    lecturerId: "hungld",
+    lecturerId: "hungnd",
     classId: "SE1801",
     subjectId: "LAB211",
     slotOrder: 1,
   },
   {
-    lecturerId: "ducdnm",
+    lecturerId: "taitv",
     classId: "SE1802",
     subjectId: "IOT102",
     slotOrder: 1,
@@ -188,19 +194,19 @@ const classInfo = [
     slotOrder: 2,
   },
   {
-    lecturerId: "hungld",
+    lecturerId: "hungnd",
     classId: "SE1803",
     subjectId: "SWE201c",
     slotOrder: 1,
   },
   {
-    lecturerId: "nhandt",
+    lecturerId: "toidt",
     classId: "SE1803",
     subjectId: "CSI105",
     slotOrder: 3,
   },
   {
-    lecturerId: "ducdnm",
+    lecturerId: "taitv",
     classId: "SE1803",
     subjectId: "LAB211",
     slotOrder: 2,
@@ -546,4 +552,13 @@ const attendance = [
   },
 ];
 
-export { admin, lecturer, classes, subject, student, classInfo, attendance };
+export {
+  admin,
+  lecturer,
+  classes,
+  subject,
+  student,
+  classInfo,
+  attendance,
+  updateRFID,
+};

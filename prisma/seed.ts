@@ -7,6 +7,7 @@ import {
   student,
   classInfo,
   attendance,
+  updateRFID,
 } from "@/lib/placeholder-data";
 
 import { AttendStatus } from "@prisma/client";
@@ -27,6 +28,7 @@ function stringToAttendStatus(value: string): AttendStatus {
 async function seed() {
   // await db.$queryRaw("")
   await db.admin.create({ data: admin });
+  await db.updateRFID.create({ data: updateRFID });
   await Promise.all(lecturer.map((lec) => db.lecturer.create({ data: lec })));
   await Promise.all(classes.map((cl) => db.class.create({ data: cl })));
   await Promise.all(subject.map((sub) => db.subject.create({ data: sub })));

@@ -83,6 +83,15 @@ CREATE TABLE "BikeParking" (
     CONSTRAINT "BikeParking_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "UpdateRFID" (
+    "id" SERIAL NOT NULL,
+    "uid" TEXT NOT NULL,
+    "isUpdated" BOOLEAN NOT NULL,
+
+    CONSTRAINT "UpdateRFID_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 

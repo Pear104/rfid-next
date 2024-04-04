@@ -167,9 +167,26 @@ GET http://localhost:3000/api/bikeParking
 Content-Type: application/json
 
 ###> Check bike
-POST http://localhost:3000/api/bikeParking
+POST https://rfid-next-kappa.vercel.app/api/bikeParking
 Content-Type: application/json
 
 {
-    "uid": "SE010"
+    "uid": "SE1000"
+}
+
+
+###> Check attendance
+POST https://rfid-next-kappa.vercel.app/api/attendance
+Content-Type: application/json
+
+{
+    "uid": "SE1000"
+}
+
+###> Register new UID
+POST http://localhost:3000/api/updateRFID
+Content-Type: application/json
+
+{
+    "uid": "SE001"
 }

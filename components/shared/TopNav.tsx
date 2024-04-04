@@ -64,6 +64,13 @@ export default function TopNav() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/updateRFID" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Update RFID
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
       <Button onClick={handleClick}>Logout</Button>

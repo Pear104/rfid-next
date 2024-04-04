@@ -82,6 +82,12 @@ model BikeParking {
   student   Student  @relation(fields: [studentId], references: [id])
 }
 
+model UpdateRFID {
+  id        Int     @id @default(autoincrement())
+  uid       String
+  isUpdated Boolean
+}
+
 enum AttendStatus {
   FUTURE
   PRESENT
