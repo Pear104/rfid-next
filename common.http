@@ -1,0 +1,24 @@
+###> Check bike
+POST https://rfid-next-kappa.vercel.app/api/bikeParking
+Content-Type: application/json
+
+{
+    "uid": "SE1000"
+}
+
+
+###> Check attendance
+POST https://rfid-next-kappa.vercel.app/api/attendance
+Content-Type: application/json
+
+{
+    "uid": "SE1000"
+}
+
+###> Register new UID
+POST https://rfid-next-kappa.vercel.app/api/updateRFID
+Content-Type: application/json
+
+{
+    "uid": "SE001"
+}

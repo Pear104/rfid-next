@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     },
   });
   if (!data) {
-    return await NextResponse.json({ ok: false });
+    return await NextResponse.json({ message: "Not found" });
   }
   const insertData = await db.bikeParking.create({
     data: {

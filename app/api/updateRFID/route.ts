@@ -23,6 +23,6 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json(data);
   } else {
-    return NextResponse.json({ ok: false });
+    return NextResponse.json({ message: "Not found" });
   }
 }
